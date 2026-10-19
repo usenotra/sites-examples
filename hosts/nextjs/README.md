@@ -1,6 +1,6 @@
 # Next.js host
 
-Pathway's marketing site, a Next.js App Router app with one landing page. It serves the Notra site in [`examples/sites/nextjs`](../../sites/nextjs) under `/blog` and `/changelog` on its own domain, using `rewrites` in `next.config.ts`.
+Pathway's marketing site, a Next.js App Router app with one landing page. It serves the Notra site in [`sites/nextjs`](../../sites/nextjs) under `/blog` and `/changelog` on its own domain, using `rewrites` in `next.config.ts`.
 
 ```text
 www.pathway.com/            this app
@@ -36,7 +36,7 @@ Keep `trailingSlash` off, don't set a `basePath`, and if you add a `proxy.ts` or
 
 ## Deploy
 
-**Vercel:** import the folder as a project (framework preset Next.js, root directory `examples/hosts/nextjs` if you deploy from this repository), add `NOTRA_SITE_ORIGIN` under **Settings → Environment Variables** and deploy.
+**Vercel:** import the folder as a project (framework preset Next.js, root directory `hosts/nextjs` if you deploy from this repository), add `NOTRA_SITE_ORIGIN` under **Settings → Environment Variables** and deploy.
 
 **Anywhere else:** `bun run build && bun run start` on any Node.js host or container. Put it behind a load balancer or CDN that sets `X-Forwarded-For`, because Next.js passes that header on to Notra but doesn't add the visitor's IP itself.
 

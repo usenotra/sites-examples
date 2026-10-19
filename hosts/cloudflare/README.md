@@ -1,6 +1,6 @@
 # Cloudflare host
 
-A Cloudflare Worker for Relaywave's main website. It serves a one-page landing page at `/` and forwards `/blog` and `/changelog` to the Notra site in [`examples/sites/cloudflare`](../../sites/cloudflare).
+A Cloudflare Worker for Relaywave's main website. It serves a one-page landing page at `/` and forwards `/blog` and `/changelog` to the Notra site in [`sites/cloudflare`](../../sites/cloudflare).
 
 The proxy code follows [Serve your site under a path with Cloudflare](https://usenotra.com/docs/sites/domains/cloudflare): it forwards each section path and everything below it with the path unchanged, drops `cookie` and `authorization`, sets `x-forwarded-for` from `cf-connecting-ip`, forwards the method and body, and returns Notra's redirects to the browser with `redirect: "manual"`.
 

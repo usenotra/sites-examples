@@ -32,11 +32,11 @@
         "items": [
           { "label": "Notra", "href": "https://usenotra.com" },
           { "label": "Pricing", "href": "https://usenotra.com/pricing" },
-          { "label": "Source", "href": "https://github.com/usenotra/notra" }
+          { "label": "Source", "href": "https://github.com/usenotra/sites-examples" }
         ]
       }
     ],
-    "socials": { "x": "https://x.com/usenotra", "github": "https://github.com/usenotra/notra" }
+    "socials": { "x": "https://x.com/usenotra", "github": "https://github.com/usenotra/sites-examples" }
   },
   "blog": {
     "title": "The Tidepool Blog",

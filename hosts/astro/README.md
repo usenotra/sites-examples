@@ -1,6 +1,6 @@
 # Astro host
 
-The Fernhill marketing site, built with Astro. It serves the Notra site from [`examples/sites/astro`](../../sites/astro) under `/blog` and `/changelog` on its own domain.
+The Fernhill marketing site, built with Astro. It serves the Notra site from [`sites/astro`](../../sites/astro) under `/blog` and `/changelog` on its own domain.
 
 - The landing page, `/robots.txt` and `/llms.txt` are prerendered at build time.
 - `src/pages/blog/[...path].ts` and `src/pages/changelog/[...path].ts` render on demand (`prerender = false`) and forward every request to Notra with the path unchanged. `[...path]` also matches `/blog` itself.
@@ -32,7 +32,7 @@ bun run dev
 
 Open http://localhost:4321, then http://localhost:4321/blog. The proxy also works in `astro dev`.
 
-To test against a local build of the site instead of the live one, build `examples/sites/astro`, serve the output on a port, and set `NOTRA_SITE_ORIGIN=http://localhost:<port>`.
+To test against a local build of the site instead of the live one, build `sites/astro`, serve the output on a port, and set `NOTRA_SITE_ORIGIN=http://localhost:<port>`.
 
 ## Deploy
 

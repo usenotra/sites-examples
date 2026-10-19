@@ -26,7 +26,7 @@
         "items": [{ "label": "Made with Notra", "href": "https://usenotra.com" }]
       }
     ],
-    "socials": { "x": "https://x.com/usenotra", "github": "https://github.com/usenotra/notra" }
+    "socials": { "x": "https://x.com/usenotra", "github": "https://github.com/usenotra/sites-examples" }
   },
   "blog": {
     "title": "Ledgerly Blog",

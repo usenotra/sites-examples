@@ -44,7 +44,7 @@ With the Netlify CLI installed, `netlify dev` runs the real rules against the ad
 
 ## Deploy
 
-1. Create a site on Netlify from this folder (set **Base directory** to `examples/hosts/netlify` if it lives in this repository). There is no build command, and `netlify.toml` publishes `public/`.
+1. Create a site on Netlify from this folder (set **Base directory** to `hosts/netlify` if it lives in this repository). There is no build command, and `netlify.toml` publishes `public/`.
 2. Add your domain to the Netlify site, for example `www.tidepool.example`.
 3. In Notra, set the section paths to `/blog` and `/changelog`, open **Domains → Add domain** and enter `www.tidepool.example/blog`.
 4. Open `https://www.tidepool.example/blog/_notra/probe.txt` to confirm the rule works, then click **Check** in Notra.

@@ -20,7 +20,7 @@
       { "label": "Home", "href": "/" },
       { "label": "Docs", "href": "https://usenotra.com/docs", "icon": "book-open" }
     ],
-    "primary": { "type": "github", "href": "https://github.com/usenotra/notra" },
+    "primary": { "type": "github", "href": "https://github.com/usenotra/sites-examples" },
     "cta": { "label": "Start sending", "href": "https://usenotra.com" }
   },
   "footer": {
@@ -41,7 +41,7 @@
         ]
       }
     ],
-    "socials": { "github": "https://github.com/usenotra/notra", "x": "https://x.com/usenotra" }
+    "socials": { "github": "https://github.com/usenotra/sites-examples", "x": "https://x.com/usenotra" }
   },
   "blog": {
     "title": "Relaywave Engineering",

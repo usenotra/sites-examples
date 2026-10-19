@@ -18,7 +18,7 @@
       { "label": "Docs", "href": "https://usenotra.com/docs" },
       { "label": "Pricing", "href": "https://usenotra.com/pricing" }
     ],
-    "primary": { "type": "github", "href": "https://github.com/usenotra/notra" },
+    "primary": { "type": "github", "href": "https://github.com/usenotra/sites-examples" },
     "cta": { "label": "Browse icons", "href": "https://usenotra.com" }
   },
   "footer": {
@@ -38,7 +38,7 @@
         ]
       }
     ],
-    "socials": { "x": "https://x.com/usenotra", "github": "https://github.com/usenotra/notra" }
+    "socials": { "x": "https://x.com/usenotra", "github": "https://github.com/usenotra/sites-examples" }
   },
   "blog": {
     "title": "The Pixelmint Blog",

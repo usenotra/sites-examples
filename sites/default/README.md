@@ -5,7 +5,7 @@ A deployable blog and changelog for Notra hosted sites, using the default Notra 
 ## Deploy from this repository
 
 1. Open **Sites → New site** in Notra and select this repository and the branch containing this example.
-2. Enable **Site is in a subdirectory** and enter `examples/sites/default`.
+2. Enable **Site is in a subdirectory** and enter `sites/default`.
 3. Set the blog path to `/blog` and the changelog path to `/changelog`.
 4. Deploy to your Notra-provided hostname or connect a custom domain.
 

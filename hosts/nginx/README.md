@@ -1,6 +1,6 @@
 # nginx host
 
-The Stonebridge website: a static landing page served by nginx, which forwards `/blog` and `/changelog` to Notra. The Notra content is in [`examples/sites/nginx`](../../sites/nginx).
+The Stonebridge website: a static landing page served by nginx, which forwards `/blog` and `/changelog` to Notra. The Notra content is in [`sites/nginx`](../../sites/nginx).
 
 It follows [nginx and Caddy](https://usenotra.com/docs/sites/domains/nginx) and [Serve your site under a path](https://usenotra.com/docs/sites/domains/subpath).
 

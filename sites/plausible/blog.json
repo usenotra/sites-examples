@@ -31,14 +31,14 @@
         "header": "Built with",
         "items": [
           { "label": "Notra", "href": "https://usenotra.com" },
-          { "label": "Notra on GitHub", "href": "https://github.com/usenotra/notra" }
+          { "label": "Notra on GitHub", "href": "https://github.com/usenotra/sites-examples" }
         ]
       }
     ],
     "socials": {
       "bluesky": "https://bsky.app/profile/usenotra.com",
       "instagram": "https://www.instagram.com/usenotra",
-      "github": "https://github.com/usenotra/notra"
+      "github": "https://github.com/usenotra/sites-examples"
     }
   },
   "blog": {

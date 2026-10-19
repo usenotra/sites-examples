@@ -17,7 +17,7 @@ A one-page static website for Quillstack on Vercel that serves the Notra site fr
 `vercel dev` applies the rewrites locally. It asks to link the folder to a Vercel project the first time:
 
 ```bash
-cd examples/hosts/vercel
+cd hosts/vercel
 vercel dev
 ```
 
@@ -25,7 +25,7 @@ Then open http://localhost:3000, http://localhost:3000/blog and http://localhost
 
 ## Deploy
 
-1. Import the repository on Vercel and set **Root Directory** to `examples/hosts/vercel`, or run `vercel deploy --prod` from this folder.
+1. Import the repository on Vercel and set **Root Directory** to `hosts/vercel`, or run `vercel deploy --prod` from this folder.
 2. Leave the framework preset on **Other**, with no build command.
 3. Add your domain to the Vercel project.
 4. In Notra, open **Domains → Add domain**, enter `www.yourdomain.com/blog`, and click **Check**. You can test the rewrite first at `https://www.yourdomain.com/blog/_notra/probe.txt`.
