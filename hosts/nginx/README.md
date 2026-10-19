@@ -12,6 +12,7 @@ It follows [nginx and Caddy](https://usenotra.com/docs/sites/domains/nginx) and 
 - `location ~ ^/(blog|changelog)(/|$)` matches `/blog`, `/blog/*`, `/changelog` and `/changelog/*`, the same paths as the four locations in the guide, and proxies them with the path unchanged.
 - `proxy_set_header Host $proxy_host` sends the host from `NOTRA_SITE_ORIGIN`, like `stonebridge-nginx.notra.site`. It's the same value the guide hardcodes, read from the env var so you only set it once.
 - `proxy_ssl_server_name on`, `X-Forwarded-For`, and empty `Cookie` and `Authorization` headers come straight from the guide. nginx passes redirects, `POST` bodies and the `Accept` header through by default.
+- `absolute_redirect off` keeps redirects nginx makes itself, like `/about` → `/about/` for a folder in `html/`, relative. Otherwise nginx writes its own host and port into `Location`, which breaks behind TLS or a different port.
 
 ## Run it locally
 
@@ -21,13 +22,6 @@ docker compose up
 ```
 
 Open http://localhost:8080, then http://localhost:8080/blog.
-
-To test against a local build of the site instead of the live one, serve the build on port 8000 and point nginx at it:
-
-```bash
-python3 -m http.server 8000 -d path/to/build
-NOTRA_SITE_ORIGIN=http://host.docker.internal:8000 docker compose up
-```
 
 ## Deploy
 
@@ -43,7 +37,17 @@ sudo nginx -t && sudo systemctl reload nginx
 
 Pass the variable list to `envsubst` as above, or it also replaces nginx's own `$proxy_host` and `$uri` with empty strings.
 
-nginx looks up the Notra host when it starts or reloads, so it refuses to start if the name doesn't resolve at that moment.
+nginx resolves the Notra host once, when it starts or reloads, and keeps that address until the next reload. It refuses to start if the name doesn't resolve at that moment, and if the address behind `*.notra.site` changes, requests fail until you reload nginx. To look the name up again while running, add a `resolver` (like `resolver 1.1.1.1 valid=300s;`) and put the address in a variable that `proxy_pass` uses, because nginx only re-resolves names it reads from variables.
+
+### Behind a load balancer or CDN
+
+`X-Forwarded-For $remote_addr` sends the address that connected to nginx. Behind a load balancer or CDN, that's the load balancer, so every visitor looks the same in site analytics. Restore the visitor's address with the `realip` module (included in the official image) in the `server` block, trusting only your load balancer's addresses:
+
+```nginx
+set_real_ip_from 10.0.0.0/8;   # your load balancer's address range
+real_ip_header X-Forwarded-For;
+real_ip_recursive on;
+```
 
 Then in Notra, add `www.yourdomain.com/blog` under **Domains** and click **Check**. Replace `www.example.com` in `html/robots.txt` with your domain so search engines find the section sitemaps.
 

@@ -4,8 +4,7 @@ The marketing site for Brightdesk, a fictional help desk, built with TanStack St
 
 The forwarding lives in [`vite.config.ts`](./vite.config.ts), following the [TanStack Start guide](https://usenotra.com/docs/sites/domains/tanstack-start):
 
-- **Vercel:** edge routes in `nitro({ vercel })` forward both paths before the request reaches the app.
-- **Any other host** (Node, Docker, Netlify, Cloudflare): Nitro `routeRules` proxy both paths from the server.
+- **Production:** Nitro `routeRules` proxy both paths. On Vercel, Nitro writes them into the build output as edge routes, so the request never reaches the app. On every other host (Node, Docker, Netlify, Cloudflare) the server proxies them.
 - **Local development:** `devProxy` sends the same paths through the dev server.
 
 The nav links to `/blog` and `/changelog` are plain `<a>` tags, because those pages aren't routes in this app. Don't add `src/routes/blog` or `src/routes/changelog`.
@@ -20,21 +19,19 @@ bun run dev
 
 Open http://localhost:3000, then http://localhost:3000/blog.
 
-To try it against a local build of the Notra site instead of the live one, serve the build on a port and set `NOTRA_SITE_ORIGIN=http://localhost:<port>` in `.env`.
-
 ## Environment variables
 
 | Name | Default | What it is |
 | --- | --- | --- |
 | `NOTRA_SITE_ORIGIN` | `https://brightdesk-tanstack.notra.site` | Your Notra address from the site's **Domains** page, without a trailing slash |
 
-`vite.config.ts` reads it at build time, so set it in your host's build environment and redeploy after you change it.
+`vite.config.ts` reads it with Vite's `loadEnv`, from `.env` or the build environment, and strips a trailing slash. It's used at build time, so set it in your host's build environment and redeploy after you change it.
 
 ## Deploy
 
 ### Vercel
 
-Import the folder as a project. Vercel detects the Nitro output and uses the edge routes, so no extra settings are needed apart from `NOTRA_SITE_ORIGIN`.
+Import the folder as a project. Vercel detects the Nitro output, where the `routeRules` proxies are already edge routes, so no extra settings are needed apart from `NOTRA_SITE_ORIGIN`.
 
 ### Node or Docker
 
@@ -62,13 +59,14 @@ Set the matching [Nitro preset](https://nitro.build/deploy) with `NITRO_PRESET=n
 ## Limits
 
 - A `routeRules` entry like `"/**": { headers: ... }` also applies to proxied pages and can replace Notra's `Content-Security-Policy`, so exclude `/blog` and `/changelog` from it.
+- Off Vercel, the `routeRules` proxy doesn't add the visitor's IP to `X-Forwarded-For`, and it forwards cookies and `Authorization`. Put it behind a load balancer or CDN that sets `X-Forwarded-For`, or deploy to Vercel, where the edge routes handle it.
 - Middleware in `src/start.ts` doesn't run for `/blog` and `/changelog`, because Nitro forwards them before TanStack Start sees the request.
 
 ## Files
 
 ```text
 vite.config.ts           TanStack Start, React and Nitro with the /blog and /changelog forwarding
-src/routes/__root.tsx    HTML shell, title, favicon and RSS link
+src/routes/__root.tsx    HTML shell, title, favicon, RSS link and 404 page
 src/routes/index.tsx     the landing page
 src/router.tsx           router setup
 src/styles.css           landing page styles

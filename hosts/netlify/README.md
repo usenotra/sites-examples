@@ -33,13 +33,6 @@ bun run dev
 # http://localhost:8888, with /blog and /changelog coming from NOTRA_SITE_ORIGIN
 ```
 
-To test against a local build of the site, serve the build folder and point the stand-in at it:
-
-```bash
-python3 -m http.server 4321 -d path/to/build
-NOTRA_SITE_ORIGIN=http://localhost:4321 bun run dev
-```
-
 With the Netlify CLI installed, `netlify dev` runs the real rules against the address in `netlify.toml`.
 
 ## Deploy

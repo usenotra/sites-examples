@@ -43,7 +43,7 @@
     "title": "Changelog",
     "description": "Every Forgekit release: new commands, SDK changes, fixes and the occasional breaking change, with upgrade steps.",
     "layout": "timeline",
-    "hero": { "style": "plain", "eyebrow": "$ forge changelog" }
+    "hero": { "eyebrow": "$ forge changelog" }
   },
   "blog": {
     "title": "Engineering blog",

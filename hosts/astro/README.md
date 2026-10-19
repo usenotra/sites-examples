@@ -15,9 +15,9 @@ The proxy in `src/lib/notra-proxy.ts` follows [the rules for a rewrite](https://
 | Don't follow redirects | `redirect: "manual"` returns Notra's `307` and `308` to the browser |
 | Forward `POST` with its body | Analytics posts to `/blog/_notra/e` |
 | Keep `Accept` | Copies the request headers, so AI agents get Markdown |
-| Visitor IP in `X-Forwarded-For` | Appends Astro's `clientAddress` |
+| Visitor IP in `X-Forwarded-For` | Appends Astro's `clientAddress` to the incoming `X-Forwarded-For`, or sets it when there is none |
 | No cookies or `Authorization` | Removed before forwarding |
-| Leave Notra's response alone | Passes status and headers through, and `X-Astro-Reroute: no` keeps Notra's 404 page |
+| Leave Notra's response alone | Passes status and headers through. Astro doesn't replace a 404 returned by an endpoint, so visitors see Notra's 404 page |
 | No trailing-slash redirect | `trailingSlash: "ignore"` (the default) |
 
 `security.checkOrigin` is off in `astro.config.mjs`. Notra's analytics sends a `text/plain` POST with `navigator.sendBeacon`, which Astro's origin check can reject behind a proxy that changes the host or protocol. The proxy routes are the only on-demand routes in this app. If your app has its own forms, keep the check on and confirm `/blog/_notra/e` still answers.
@@ -32,16 +32,16 @@ bun run dev
 
 Open http://localhost:4321, then http://localhost:4321/blog. The proxy also works in `astro dev`.
 
-To test against a local build of the site instead of the live one, build `sites/astro`, serve the output on a port, and set `NOTRA_SITE_ORIGIN=http://localhost:<port>`.
-
 ## Deploy
 
-Build once, then run the Node server:
+Build once with your public URL, then run the Node server:
 
 ```bash
-bun run build
+SITE_URL=https://www.yourdomain.com bun run build
 HOST=0.0.0.0 PORT=8080 bun run start
 ```
+
+The build stops with an error if `SITE_URL` is missing, so `/robots.txt` and `/llms.txt` never point at `localhost`. `bun run start` loads `.env` when the file exists, and variables set by your host take precedence.
 
 This works on Railway, Render, Fly.io, a VPS or Docker. A minimal Dockerfile:
 
@@ -82,8 +82,8 @@ Delete any `src/pages/blog` and `src/pages/changelog` pages first, because files
 
 | Name | Default | What it is |
 | --- | --- | --- |
-| `NOTRA_SITE_ORIGIN` | `https://fernhill-astro.notra.site` | The Notra address from the site's **Domains** page, read at request time |
-| `SITE_URL` | `http://localhost:4321` | This website's public URL, used for the `Sitemap` lines in `/robots.txt` at build time |
+| `NOTRA_SITE_ORIGIN` | `https://fernhill-astro.notra.site` | The Notra address from the site's **Domains** page. A server secret in the `astro:env` schema, read when the server starts, so changing it needs a restart, not a rebuild |
+| `SITE_URL` | `http://localhost:4321` in `astro dev`, required for `astro build` | This website's public URL, used for the `Sitemap` lines in `/robots.txt` and the links in `/llms.txt` at build time |
 | `HOST`, `PORT` | `localhost`, `4321` | Where the Node server listens |
 
 ## After deploying
@@ -94,7 +94,7 @@ Delete any `src/pages/blog` and `src/pages/changelog` pages first, because files
 ## Files
 
 ```text
-astro.config.mjs                    Node adapter, trailingSlash, checkOrigin
+astro.config.mjs                    Node adapter, env schema, SITE_URL, trailingSlash, checkOrigin
 src/lib/notra-proxy.ts              forwards a request to Notra
 src/pages/blog/[...path].ts         /blog and everything below it
 src/pages/changelog/[...path].ts    /changelog and everything below it

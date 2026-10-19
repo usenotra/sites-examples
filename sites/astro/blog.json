@@ -43,7 +43,6 @@
     "description": "Plant care that works in real flats, and how we build the app that helps with it.",
     "layout": "grid",
     "hero": { "style": "image", "image": "/images/hero.png", "eyebrow": "From the greenhouse" },
-    "featured": "none",
     "card": { "image": true, "readingTime": true }
   },
   "changelog": {

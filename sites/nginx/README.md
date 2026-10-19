@@ -5,7 +5,7 @@ A blog and changelog for a fictional backup company, Stonebridge, served under `
 - **Live:** https://stonebridge-nginx.notra.site
 - **Setup:** nginx in front of the brand's website, forwarding `/blog` and `/changelog` to the site's `notra.site` address. The nginx side is in [`hosts/nginx`](../../hosts/nginx)
 - **Shows:** IBM Plex Serif headings with IBM Plex Sans body text from Google Fonts, slate and indigo colors with a dark-mode CSS override, 64rem layout width, magazine blog index with a plain hero and cover images, narrow posts without a table of contents, timeline changelog with versions and images, a logo that links back to the website's `/`, Steps, Tabs, Note and Warning
-- **Docs:** [Serve your site under a path](https://usenotra.com/docs/sites/domains/subpath), [nginx and Caddy](https://usenotra.com/docs/sites/domains/nginx), [Design and CSS](https://usenotra.com/docs/sites/customize/design), [Layouts](https://usenotra.com/docs/sites/customize/layouts), [Slots](https://usenotra.com/docs/sites/match-your-website#slots)
+- **Docs:** [Serve your site under a path](https://usenotra.com/docs/sites/domains/subpath), [nginx and Caddy](https://usenotra.com/docs/sites/domains/nginx), [Design and CSS](https://usenotra.com/docs/sites/customize/design), [Layouts](https://usenotra.com/docs/sites/customize/layouts)
 
 ## Use it
 

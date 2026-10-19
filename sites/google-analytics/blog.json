@@ -12,7 +12,6 @@
   "background": { "color": { "light": "#FBFAF6", "dark": "#0B1426" } },
   "banner": {
     "content": "**LCL consolidation** from Ningbo now ships weekly. [See the schedule](/blog/weekly-lcl-from-ningbo)",
-    "type": "info",
     "dismissible": true
   },
   "navbar": {

@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
+import { NOTRA_SITE_ORIGIN } from "astro:env/server";
 
-const SITE_ORIGIN = (process.env.NOTRA_SITE_ORIGIN ?? "https://fernhill-astro.notra.site").replace(/\/$/, "");
+const SITE_ORIGIN = NOTRA_SITE_ORIGIN.replace(/\/+$/, "");
 
 const DROPPED_REQUEST_HEADERS = [
   "host",
@@ -26,7 +27,9 @@ export const proxyToNotra: APIRoute = async ({ request, clientAddress }) => {
   for (const name of DROPPED_REQUEST_HEADERS) {
     headers.delete(name);
   }
-  headers.set("x-forwarded-for", clientAddress);
+  // Keep the chain from any proxy in front of this server and add the address it connected from.
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  headers.set("x-forwarded-for", forwardedFor ? `${forwardedFor}, ${clientAddress}` : clientAddress);
 
   const hasBody = request.method !== "GET" && request.method !== "HEAD";
   const upstream = await fetch(`${SITE_ORIGIN}${url.pathname}${url.search}`, {
@@ -40,7 +43,6 @@ export const proxyToNotra: APIRoute = async ({ request, clientAddress }) => {
   for (const name of DROPPED_RESPONSE_HEADERS) {
     responseHeaders.delete(name);
   }
-  responseHeaders.set("X-Astro-Reroute", "no");
 
   return new Response(upstream.body, {
     status: upstream.status,

@@ -19,7 +19,6 @@
     }
   },
   "background": {
-    "decoration": "none",
     "color": {
       "light": "#FBFAF6",
       "dark": "#15130E"
@@ -30,7 +29,6 @@
   },
   "banner": {
     "content": "**DriftDB {{ version }}** is out. Install it with `{{ install }}` or [read the release notes](/changelog).",
-    "type": "info",
     "dismissible": true
   },
   "navbar": {
@@ -98,7 +96,6 @@
     "description": "Engineering notes, benchmarks and guides from the people who maintain DriftDB.",
     "layout": "list",
     "hero": {
-      "style": "plain",
       "eyebrow": "Open source, Apache-2.0"
     },
     "card": {

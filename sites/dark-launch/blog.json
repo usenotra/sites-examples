@@ -4,13 +4,12 @@
   "description": "Launch notes from the team building Nova, the AI notetaker that writes up your meetings while you talk.",
   "logo": "/images/logo.svg",
   "favicon": "/images/favicon.svg",
-  "colors": { "primary": "#E11D8A", "light": "#FF6EC7", "dark": "#E11D8A" },
+  "colors": { "primary": "#E11D8A", "light": "#FF6EC7" },
   "appearance": { "default": "dark", "strict": false },
   "fonts": { "heading": { "family": "Geist", "weight": 600 }, "body": { "family": "Inter" } },
   "background": { "decoration": "gradient" },
   "banner": {
     "content": "**Nova 1.0** is out after 14 months of beta. [Read the launch post](/blog/introducing-nova-1)",
-    "type": "info",
     "dismissible": false
   },
   "navbar": {
@@ -55,8 +54,7 @@
   },
   "changelog": {
     "title": "Changelog",
-    "description": "Every Nova release, from the first beta to 1.0.",
-    "layout": "timeline"
+    "description": "Every Nova release, from the first beta to 1.0."
   },
   "authors": {
     "ines": { "name": "Ines Kowalczyk", "title": "Co-founder and CEO" },

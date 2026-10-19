@@ -4,7 +4,7 @@
   "description": "Notes from Northwind Studio, a small design studio that builds calm, privacy-friendly websites.",
   "logo": "/images/logo.svg",
   "favicon": "/images/favicon.svg",
-  "colors": { "primary": "#1C1B19", "light": "#ECE8E1", "dark": "#1C1B19" },
+  "colors": { "primary": "#1C1B19", "light": "#ECE8E1" },
   "fonts": {
     "heading": { "family": "Newsreader", "weight": 500 },
     "body": { "family": "Inter Tight" }

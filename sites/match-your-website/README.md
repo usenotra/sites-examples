@@ -21,7 +21,7 @@ The header, footer and slots only use theme colors (`bg-background`, `text-foreg
 ## Files
 
 ```text
-blog.json                 settings: name, colors, fonts, appearance, authors
+blog.json                 settings: name, colors, fonts, background, layout, styling, authors
 header.mdx                your header, replaces the theme's navbar
 footer.mdx                your footer, replaces the theme's footer
 style.css                 brand tokens and classes, loads after the theme

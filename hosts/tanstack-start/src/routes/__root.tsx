@@ -32,8 +32,21 @@ export const Route = createRootRoute({
     ],
   }),
   component: Outlet,
+  notFoundComponent: NotFound,
   shellComponent: RootDocument,
 });
+
+function NotFound() {
+  return (
+    <main className="hero container">
+      <p className="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p className="lead">
+        <a href="/">Back to Brightdesk</a>
+      </p>
+    </main>
+  );
+}
 
 function RootDocument({ children }: { children: ReactNode }) {
   return (

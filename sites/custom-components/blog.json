@@ -45,13 +45,11 @@
     "description": "New icon sets, drawing notes from the studio and how to ship Pixelmint in your app.",
     "layout": "grid",
     "hero": { "style": "image", "image": "/images/hero.png", "eyebrow": "Fresh from the studio" },
-    "featured": "none",
     "card": { "image": true, "readingTime": true }
   },
   "changelog": {
     "title": "What's new in Pixelmint",
-    "description": "Every icon, illustration and package release.",
-    "layout": "timeline"
+    "description": "Every icon, illustration and package release."
   },
   "authors": {
     "juno": { "name": "Juno Achterberg", "title": "Icon designer" },

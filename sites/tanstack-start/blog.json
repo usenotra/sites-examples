@@ -4,7 +4,7 @@
   "description": "Notes from the team building Brightdesk, the help desk for small SaaS teams.",
   "logo": { "light": "/images/logo.svg", "dark": "/images/logo.svg", "href": "/" },
   "favicon": "/images/favicon.svg",
-  "colors": { "primary": "#C2410C", "light": "#FB923C", "dark": "#C2410C" },
+  "colors": { "primary": "#C2410C", "light": "#FB923C" },
   "fonts": {
     "heading": { "family": "Bricolage Grotesque", "weight": 700 },
     "body": { "family": "Inter" }

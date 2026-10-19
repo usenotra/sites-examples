@@ -4,7 +4,7 @@
   "description": "Notes from the team building Kilnworks, inventory software for ceramic studios.",
   "logo": "/images/logo.svg",
   "favicon": "/images/favicon.svg",
-  "colors": { "primary": "#B5462B", "light": "#EB8A6E", "dark": "#B5462B" },
+  "colors": { "primary": "#B5462B", "light": "#EB8A6E" },
   "fonts": {
     "heading": { "family": "Young Serif", "weight": 400 },
     "body": { "family": "Inter" }

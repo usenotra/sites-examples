@@ -20,6 +20,6 @@
 }
 
 html.dark #topbar-cta-button > a {
-  background: #ece8e1;
-  color: #141413;
+  background: var(--accent);
+  color: var(--background);
 }

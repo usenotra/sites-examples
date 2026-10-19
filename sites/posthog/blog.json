@@ -4,7 +4,7 @@
   "description": "Notes from the team building Cadence, product analytics for mobile games.",
   "logo": "/images/logo.svg",
   "favicon": "/images/favicon.svg",
-  "colors": { "primary": "#6D28D9", "light": "#A78BFA", "dark": "#6D28D9" },
+  "colors": { "primary": "#6D28D9", "light": "#A78BFA" },
   "fonts": {
     "heading": { "family": "Sora", "weight": 600 },
     "body": { "family": "Inter" }

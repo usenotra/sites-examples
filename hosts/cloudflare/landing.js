@@ -1,4 +1,4 @@
-const logo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#F38020"/><path d="M6 15.5c2.2-4 4.4-4 6.6 0s4.4 4 6.6 0" fill="none" stroke="#1C1917" stroke-width="2.6" stroke-linecap="round"/><path d="M19 9.5l3.5 3.5L19 16.5" fill="none" stroke="#1C1917" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+export const logo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#F38020"/><path d="M6 15.5c2.2-4 4.4-4 6.6 0s4.4 4 6.6 0" fill="none" stroke="#1C1917" stroke-width="2.6" stroke-linecap="round"/><path d="M19 9.5l3.5 3.5L19 16.5" fill="none" stroke="#1C1917" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 export const landingPage = `<!doctype html>
 <html lang="en">
@@ -7,7 +7,7 @@ export const landingPage = `<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Relaywave · Webhook delivery infrastructure</title>
 <meta name="description" content="Relaywave sends your webhooks with retries, signatures and delivery logs.">
-<link rel="icon" href="/blog/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="Relaywave Blog" href="/blog/feed.xml">
 <style>
   :root { color-scheme: dark; }

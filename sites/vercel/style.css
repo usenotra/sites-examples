@@ -1,11 +1,9 @@
-
 #navbar {
   border-bottom: 1px solid var(--foreground);
 }
 
 #topbar-cta-button > a {
   border-radius: 0;
-  corner-shape: round;
 }
 
 .qs-hero {

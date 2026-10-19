@@ -36,7 +36,7 @@ export const IconSearch = ({ initial = "leaf" }) => {
   return (
     <div className="pm-widget pm-search not-prose">
       <label className="pm-search-field">
-        <span className="pm-sr-only">Search icons</span>
+        <span className="sr-only">Search icons</span>
         <Glyph d={ICONS[11].d} size={18} />
         <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Try “weather” or “plant”" />
         <span className="pm-count" aria-live="polite">{results.length} of {ICONS.length}</span>

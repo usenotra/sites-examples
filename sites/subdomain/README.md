@@ -16,8 +16,8 @@ A product blog and changelog for a fictional company, Ledgerly, served on its ow
 ## Files
 
 ```text
-blog.json          settings: name, logo, colors, navigation, authors
+blog.json          settings: name, logo, favicon, colors, navigation, authors
 blog/              one .mdx file per post
 changelog/         one .mdx file per release
-public/images/     logo and cover images
+public/images/     logo, favicon and cover images
 ```

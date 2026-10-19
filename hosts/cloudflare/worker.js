@@ -1,4 +1,4 @@
-import { landingPage } from "./landing.js";
+import { landingPage, logo } from "./landing.js";
 
 const DEFAULT_SITE_ORIGIN = "https://relaywave-cloudflare.notra.site";
 const MOUNTS = ["/blog", "/changelog"];
@@ -30,10 +30,24 @@ export default {
 };
 
 function serveLandingPage(url) {
-  if (url.pathname !== "/") {
-    return new Response("Not found", { status: 404, headers: { "content-type": "text/plain" } });
+  if (url.pathname === "/") {
+    return new Response(landingPage, {
+      headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300" },
+    });
   }
-  return new Response(landingPage, {
-    headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300" },
-  });
+  if (url.pathname === "/favicon.svg") {
+    return new Response(logo, {
+      headers: { "content-type": "image/svg+xml", "cache-control": "public, max-age=86400" },
+    });
+  }
+  if (url.pathname === "/robots.txt") {
+    return new Response(robotsTxt(url.origin), {
+      headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=300" },
+    });
+  }
+  return new Response("Not found", { status: 404, headers: { "content-type": "text/plain" } });
+}
+
+function robotsTxt(origin) {
+  return ["User-agent: *", "Allow: /", "", `Sitemap: ${origin}/blog/sitemap.xml`, `Sitemap: ${origin}/changelog/sitemap.xml`, ""].join("\n");
 }

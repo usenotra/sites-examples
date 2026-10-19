@@ -4,7 +4,7 @@
   "description": "Long-form writing on streets, stations and the maps that explain them. Published by Meridian Cartographic.",
   "logo": "/images/logo.svg",
   "favicon": "/images/favicon.svg",
-  "colors": { "primary": "#B23A1E", "light": "#F08A6A", "dark": "#B23A1E" },
+  "colors": { "primary": "#B23A1E", "light": "#F08A6A" },
   "fonts": {
     "heading": { "family": "Instrument Serif", "weight": 400 },
     "body": { "family": "Source Serif 4" }
@@ -52,8 +52,8 @@
       "image": "/images/hero.svg"
     },
     "featured": ["the-diagram-and-the-street", "a-bench-every-200-metres"],
-    "card": { "image": true, "excerpt": true, "author": true, "date": true, "readingTime": true },
-    "post": { "width": "narrow", "authorCard": true, "readingTime": true }
+    "card": { "image": true, "readingTime": true },
+    "post": { "width": "narrow" }
   },
   "changelog": {
     "title": "Meridian Atlas updates",

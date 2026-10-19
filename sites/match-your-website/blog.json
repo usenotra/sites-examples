@@ -5,7 +5,6 @@
   "logo": "/images/logo.svg",
   "favicon": "/images/favicon.svg",
   "colors": { "primary": "#0891B2", "light": "#22D3EE", "dark": "#06B6D4" },
-  "appearance": { "default": "system" },
   "fonts": {
     "heading": { "family": "Space Grotesk", "weight": 600 },
     "body": { "family": "Inter" }
@@ -16,14 +15,11 @@
   "blog": {
     "title": "Field notes",
     "description": "How we turn raw satellite passes into imagery you can query.",
-    "layout": "grid",
-    "featured": "none",
     "card": { "image": true, "readingTime": true }
   },
   "changelog": {
     "title": "Changelog",
-    "description": "Every change to the Orbitly API, SDKs and console.",
-    "layout": "timeline"
+    "description": "Every change to the Orbitly API, SDKs and console."
   },
   "authors": {
     "ines": { "name": "Ines Carvalho", "title": "Imaging lead" },

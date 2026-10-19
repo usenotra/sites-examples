@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const NOTRA_SITE = process.env.NOTRA_SITE_ORIGIN ?? "https://pathway-nextjs.notra.site";
+const NOTRA_SITE = (process.env.NOTRA_SITE_ORIGIN || "https://pathway-nextjs.notra.site").replace(/\/+$/, "");
 
 const nextConfig: NextConfig = {
   async rewrites() {

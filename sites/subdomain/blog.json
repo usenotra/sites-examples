@@ -4,7 +4,7 @@
   "description": "Notes from the team building Ledgerly, the finance workspace for small companies.",
   "logo": "/images/logo.svg",
   "favicon": "/images/favicon.svg",
-  "colors": { "primary": "#0F766E", "light": "#2DD4BF", "dark": "#0F766E" },
+  "colors": { "primary": "#0F766E", "light": "#2DD4BF" },
   "navbar": {
     "links": [
       { "label": "Pricing", "href": "https://usenotra.com/pricing" },
@@ -32,7 +32,6 @@
     "title": "Ledgerly Blog",
     "description": "Product news, finance tips for founders and how we build Ledgerly.",
     "layout": "grid",
-    "featured": "none",
     "card": { "image": true, "readingTime": true }
   },
   "changelog": {
