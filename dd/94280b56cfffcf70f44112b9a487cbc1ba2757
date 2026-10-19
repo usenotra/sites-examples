@@ -1,0 +1,19 @@
+README.md
+  s_a7ae2751e42dde::t_4ae635567ed2f1 9,12,16-18,20,50,54-56,62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "dd94280b56cfffcf70f44112b9a487cbc1ba2757",
+  "prompts": {},
+  "sessions": {
+    "s_a7ae2751e42dde": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9d10445d-edc7-464c-9d10-2c75eba7a10e",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Jan Burzinski <156842394+janburzinski@users.noreply.github.com>"
+    }
+  }
+}
